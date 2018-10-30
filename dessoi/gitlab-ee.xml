@@ -9,7 +9,7 @@
 	<Project>https://github.com/gitlabhq/gitlabhq</Project>
 	<Overview>GitLab Enterprise Edition docker image based on the Omnibus package.</Overview>
 	<Category>Productivity: Tools:</Category>
-	<WebUI>https://[IP]:[PORT:9080]</WebUI>
+	<WebUI>http://[IP]:[PORT:9080]</WebUI>
 	<TemplateURL>https://raw.githubusercontent.com/DESSOI/docker-templates/master/dessoi/gitlab-ee.xml</TemplateURL>
 	<Icon>https://raw.githubusercontent.com/dessoi/docker-templates/master/images/gitlab_small.png</Icon>
 	<ExtraParams/>
