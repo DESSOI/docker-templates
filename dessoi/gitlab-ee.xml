@@ -3,33 +3,33 @@
 	<Name>GitLab-EE</Name>
 	<Repository>gitlab/gitlab-ee</Repository>
 	<Registry>https://hub.docker.com/r/gitlab/gitlab-ee/</Registry>
-	<Network>bridge</Network>
+	<Network>br0</Network>
+	<MyIP>10.0.0.1</MyIP>
+	<Shell>sh</Shell>
 	<Privileged>false</Privileged>
-	<Support/>
 	<Project>https://github.com/gitlabhq/gitlabhq</Project>
 	<Overview>GitLab Enterprise Edition docker image based on the Omnibus package.</Overview>
 	<Category>Productivity: Tools:</Category>
-	<WebUI>http://[IP]:[PORT:9080]</WebUI>
+	<WebUI>http://[IP]:[PORT:80]</WebUI>
 	<TemplateURL>https://raw.githubusercontent.com/DESSOI/docker-templates/master/dessoi/gitlab-ee.xml</TemplateURL>
 	<Icon>https://raw.githubusercontent.com/dessoi/docker-templates/master/images/gitlab_small.png</Icon>
-	<ExtraParams/>
 	<Description>GitLab Enterprise Edition docker image based on the Omnibus package.</Description>
 	<Networking>
-		<Mode>bridge</Mode>
+		<Mode>br0</Mode>
 		<Publish>
 			<Port>
-				<HostPort>9080</HostPort>
-				<ContainerPort>9080</ContainerPort>
+				<HostPort>80</HostPort>
+				<ContainerPort>80</ContainerPort>
 				<Protocol>tcp</Protocol>
 			</Port>
 			<Port>
-				<HostPort>9443</HostPort>
-				<ContainerPort>9443</ContainerPort>
+				<HostPort>443</HostPort>
+				<ContainerPort>443</ContainerPort>
 				<Protocol>tcp</Protocol>
 			</Port>
 			<Port>
-				<HostPort>9022</HostPort>
-				<ContainerPort>9022</ContainerPort>
+				<HostPort>22</HostPort>
+				<ContainerPort>22</ContainerPort>
 				<Protocol>tcp</Protocol>
 			</Port>
 		</Publish>
@@ -56,7 +56,7 @@
 	<Config Name="Config Storage Path" Target="/etc/gitlab" Default="/mnt/user/appdata/gitlab-ee/config/" Mode="rw" Description="GitLab configuration files" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/gitlab-ee/config/</Config>
 	<Config Name="Application Data Path" Target="/var/opt/gitlab" Default="/mnt/user/appdata/gitlab-ee/data" Mode="rw" Description="GitLab application data" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/gitlab-ee/data</Config>
 	<Config Name="Log Storage Path" Target="/var/log/gitlab" Default="/mnt/user/appdata/gitlab-ee/logs" Mode="rw" Description="GitLab logs" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/gitlab-ee/logs</Config>
-	<Config Name="HTTP Web Interface Port (must match gitlab.rb in config folder)" Target="9080" Default="9080" Mode="tcp" Description="Web Interface Port (HTTP)" Type="Port" Display="always" Required="false" Mask="false">9080</Config>
-	<Config Name="HTTPS Web Interface Port (must match gitlab.rb in config folder)" Target="9443" Default="9443" Mode="tcp" Description="Web Interface Port (HTTPS)" Type="Port" Display="always" Required="true" Mask="false">9443</Config>
-	<Config Name="SSH Port (must match gitlab.rb in config folder)" Target="9022" Default="9022" Mode="tcp" Description="SSH Port" Type="Port" Display="always" Required="true" Mask="false">9022</Config>
+	<Config Name="HTTP Web Interface Port (must match gitlab.rb in config folder)" Target="80" Default="80" Mode="tcp" Description="Web Interface Port (HTTP)" Type="Port" Display="always" Required="false" Mask="false">80</Config>
+	<Config Name="HTTPS Web Interface Port (must match gitlab.rb in config folder)" Target="443" Default="443" Mode="tcp" Description="Web Interface Port (HTTPS)" Type="Port" Display="always" Required="true" Mask="false">443</Config>
+	<Config Name="SSH Port (must match gitlab.rb in config folder)" Target="22" Default="22" Mode="tcp" Description="SSH Port" Type="Port" Display="always" Required="true" Mask="false">22</Config>
 </Container>
